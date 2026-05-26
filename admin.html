@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>BreezTalk Admin</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon.ico.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon.ico.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon.ico.png">
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        :root { 
+            --bg: #0a0a0a; 
+            --text: #ffffff; 
+            --panel: #1a1a1a; 
+            --border: #2a2a2a; 
+            --accent: #00d4ff; 
+            --accent-hover: #00a8cc;
+            --success: #00ff88;
+            --danger: #ff4444;
+            --warning: #ffaa00;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        #auth-screen { 
+            text-align: center; 
+            margin-top: 20vh;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #admin-panel {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+             background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+        
+        h2 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-btn {
+            padding: 12px 24px;
+            background: var(--panel);
+            color: var(--text);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        .section {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .search-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        
+        input { 
+            background: var(--bg); 
+            color: var(--text); 
+            border: 2px solid var(--border); 
+            padding: 12px 16px; 
+            margin-bottom: 15px; 
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+        
+        .search-input {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        button { 
+            background: var(--accent); 
+            color: white; 
+            border: none; 
+            padding: 12px 20px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow);
+        }
+        
+        button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        button.danger { 
+            background: var(--danger); 
+            border: none;
+        }
+        
+        button.danger:hover {
+            background: #ff3333;
+        }
+        
+        button.allow { 
+            background: var(--success); 
+            border: none;
+        }
+        
+        button.allow:hover {
+            background: #00dd77;
+        }
+        
+        .user-card, .post-card { 
+            background: var(--bg); 
+            border: 1px solid var(--border); 
+            padding: 20px; 
+            margin-bottom: 15px; 
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.2s ease;
+        }
+        
+        .user-card:hover, .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .verified-badge { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: var(--accent); 
+            color: #fff; 
+            border-radius: 50%; 
+            width: 18px; 
+            height: 18px; 
+            font-size: 12px; 
+            margin-left: 6px; 
+            font-weight: bold; 
+            vertical-align: middle;
+            box-shadow: var(--shadow);
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+            border: 2px solid var(--accent);
+            box-shadow: var(--shadow);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .user-details h3 {
+            margin: 0;
+            color: var(--text);
+            font-size: 1.1em;
+        }
+        
+        .user-details p {
+            margin: 5px 0;
+            color: var(--text);
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .action-buttons button {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: var(--gradient);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .hidden { display: none !important; }
+        
+        @media (max-width: 768px) {
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .stats {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="auth-screen">
+        <div class="section">
+            <h1 style="font-size: 1.5em;">ADMIN AUTHENTICATION</h1>
+            <input type="password" id="admin-pass" placeholder="Enter Password">
+            <button onclick="login()">LOGIN</button>
+        </div>
+    </div>
+
+    <div id="admin-panel" class="hidden">
+        <h1>Консоль Управления BreezTalk</h1>
+        
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="showSection('users-section')">Пользователи</button>
+            <button class="nav-btn" onclick="showSection('rooms-section')">Каналы и Группы</button>
+            <button class="nav-btn" onclick="showSection('online-section')">Онлайн</button>
+            <button class="nav-btn danger" onclick="showClearAllSection()" style="background: var(--danger);">🗑️ ОЧИСТИТЬ</button>
+        </div>
+
+        <div id="users-section" class="section hidden">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-users-count">0</div>
+                    <div class="stat-label">Всего пользователей</div>
+                </div>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="user-search-input" class="search-input" placeholder="Введите юзернейм для поиска..." oninput="searchUsers()">
+                <button onclick="searchUsers()">Найти</button>
+                <button onclick="clearUserSearch()">Очистить</button>
+            </div>
+            
+            <div id="users-list">Загрузка...</div>
+        </div>
+
+        <div id="rooms-section" class="section hidden">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-channels-count">0</div>
+                    <div class="stat-label">Всего каналов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="total-groups-count">0</div>
+                    <div class="stat-label">Всего групп</div>
+                </div>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="room-search-input" class="search-input" placeholder="Введите юзернейм для поиска..." oninput="searchRooms()">
+                <button onclick="searchRooms()">Найти</button>
+                <button onclick="clearRoomSearch()">Очистить</button>
+            </div>
+            
+            <div id="rooms-list">Загрузка...</div>
+        </div>
+
+        <div id="online-section" class="section hidden">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="online-users-count">0</div>
+                    <div class="stat-label">Пользователей онлайн</div>
+                </div>
+            </div>
+            
+            <div id="online-users-list">Загрузка...</div>
+        </div>
+
+        <div id="clear-section" class="section hidden">
+            <h2 style="color: var(--danger); margin-bottom: 20px;">⚠️ Опасные операции</h2>
+            <button class="danger" onclick="clearAllMessenger()" style="width: 100%; padding: 12px; font-size: 16px;">🗑️ ОЧИСТИТЬ ВСЕ ДАННЫЕ</button>
+            <p style="font-size: 12px; opacity: 0.7; margin-top: 10px; color: var(--danger);">Это действие удалит ВСЕ чаты, группы, каналы, сообщения и пользователей. Создается резервная копия перед удалением.</p>
+        </div>
+
+        
+            </div>
+
+    <script>
+        let adminToken = '';
+        const badgeHtml = `<span class="verified-badge">✓</span>`;
+        let allUsersCache = {};
+        let allRoomsCache = {};
+
+        async function login() {
+            const pwd = document.getElementById('admin-pass').value;
+            const res = await fetch('/api/admin/users', { headers: { 'x-admin-pass': pwd } });
+            if (res.status === 403) { 
+                showAlert('ДОСТУП ЗАПРЕЩЕН'); 
+            } else {
+                adminToken = pwd;
+                document.getElementById('auth-screen').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+                showSection('users-section'); // Показываем пользователей сразу
+                loadAll();
+                setInterval(loadAll, 5000); // Автообновление
+            }
+        }
+
+        function loadAll() {
+            if (!adminToken) return;
+            if (document.activeElement && document.activeElement.tagName === 'INPUT') return;
+            try {
+                loadUsers(); 
+                loadRooms();
+                loadOnlineUsers();
+            } catch (error) {
+                console.error('Ошибка при загрузке данных:', error);
+            }
+        }
+
+        function showSection(id) {
+            // Скрываем все секции
+            document.querySelectorAll('.section').forEach(s => {
+                s.classList.add('hidden');
+            });
+            
+            // Показываем выбранную секцию
+            document.getElementById(id).classList.remove('hidden');
+            
+            // Обновляем активную кнопку
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.onclick && btn.onclick.toString().includes(id)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function showClearAllSection() {
+            showSection('clear-section');
+        }
+
+        function renderUserCard(u) {
+            return `
+                <div class="user-card">
+                    <div class="user-info">
+                        <img src="${u.photo}" class="user-avatar">
+                        <div class="user-details">
+                            <h3>${u.name} (@${u.username}) ${u.isVerified ? badgeHtml : ''} ${u.isBlocked ? '🚫 БАН' : ''}</h3>
+                            <p style="color: var(--warning); font-size: 11px;">🔑 Пароль: ${u.plainPassword || u.password}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button onclick="actUser('${u.username}', 'block', ${!u.isBlocked})">${u.isBlocked ? 'Разблокировать' : 'Заблокировать'}</button>
+                        <button onclick="actUser('${u.username}', 'verify', ${!u.isVerified})">${u.isVerified ? 'Снять галочку' : 'Выдать галочку'}</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function searchUsers() {
+            const query = document.getElementById('user-search-input').value.toLowerCase().trim();
+            const usersList = document.getElementById('users-list');
+            
+            if (!query) {
+                usersList.innerHTML = Object.values(allUsersCache).map(renderUserCard).join('');
+                return;
+            }
+            
+            const filteredUsers = Object.values(allUsersCache).filter(user => 
+                user.username.toLowerCase().includes(query)
+            );
+            
+            if (filteredUsers.length === 0) {
+                usersList.innerHTML = '<p style="text-align: center; color: var(--text); opacity: 0.7;">Пользователи не найдены</p>';
+                return;
+            }
+            
+            usersList.innerHTML = filteredUsers.map(renderUserCard).join('');
+        }
+
+        function clearUserSearch() {
+            document.getElementById('user-search-input').value = '';
+            searchUsers();
+        }
+
+        async function loadUsers() {
+            const res = await fetch('/api/admin/users', { headers: { 'x-admin-pass': adminToken } });
+            allUsersCache = await res.json();
+            document.getElementById('total-users-count').innerText = Object.keys(allUsersCache).length;
+            document.getElementById('users-list').innerHTML = Object.values(allUsersCache).map(renderUserCard).join('');
+        }
+
+        function renderRoomCard(k, r) {
+            return `
+                <div class="user-card">
+                    <div class="user-info">
+                        <img src="${r.photo}" class="user-avatar">
+                        <div class="user-details">
+                            <h3>@${k} (${r.type}) ${r.isVerified ? badgeHtml : ''} ${r.isBlocked ? '🚫 БАН' : ''}</h3>
+                            <p>Участников: ${r.members ? r.members.length : 0}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <div>
+                            <input type="number" id="boost-room-${k}" placeholder="Кол-во" style="width:120px; padding:8px; margin-right:10px;">
+                            <button onclick="boostFollowers('${k}', 'room')">Накрутить участников</button>
+                        </div>
+                        <button onclick="actRoom('${k}', 'verify', ${!r.isVerified})">${r.isVerified ? 'Снять галочку' : 'Выдать галочку'}</button>
+                        <button onclick="actRoom('${k}', 'block', ${!r.isBlocked})">${r.isBlocked ? 'Разблокировать' : 'Заблокировать'}</button>
+                        <button class="danger" onclick="actRoom('${k}', 'delete', true)">Удалить полностью</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function searchRooms() {
+            const query = document.getElementById('room-search-input').value.toLowerCase().trim();
+            const roomsList = document.getElementById('rooms-list');
+            
+            if (!query) {
+                const roomsHtml = Object.keys(allRoomsCache).map(k => renderRoomCard(k, allRoomsCache[k])).join('');
+                roomsList.innerHTML = roomsHtml;
+                return;
+            }
+            
+            const filteredRooms = Object.keys(allRoomsCache).filter(roomId => 
+                roomId.toLowerCase().includes(query)
+            );
+            
+            if (filteredRooms.length === 0) {
+                roomsList.innerHTML = '<p style="text-align: center; color: var(--text); opacity: 0.7;">Каналы и группы не найдены</p>';
+                return;
+            }
+            
+            const roomsHtml = filteredRooms.map(k => renderRoomCard(k, allRoomsCache[k])).join('');
+            roomsList.innerHTML = roomsHtml;
+        }
+
+        function clearRoomSearch() {
+            document.getElementById('room-search-input').value = '';
+            searchRooms();
+        }
+
+        async function loadRooms() {
+            const res = await fetch('/api/admin/rooms', { headers: { 'x-admin-pass': adminToken } });
+            allRoomsCache = await res.json();
+            
+            let channelsCount = 0;
+            let groupsCount = 0;
+            
+            Object.keys(allRoomsCache).forEach(k => {
+                if (allRoomsCache[k].type === 'channel') {
+                    channelsCount++;
+                } else if (allRoomsCache[k].type === 'group') {
+                    groupsCount++;
+                }
+            });
+            
+            document.getElementById('total-channels-count').innerText = channelsCount;
+            document.getElementById('total-groups-count').innerText = groupsCount;
+            const roomsHtml = Object.keys(allRoomsCache).map(k => renderRoomCard(k, allRoomsCache[k])).join('');
+            document.getElementById('rooms-list').innerHTML = roomsHtml;
+        }
+
+        async function boostFollowers(target, type) {
+            const count = document.getElementById(`boost-${type}-${target}`).value;
+            if(!count || count <= 0) return showAlert("Введите корректное число");
+            await fetch('/api/admin/boost', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'x-admin-pass': adminToken },
+                body: JSON.stringify({ target, type, count: parseInt(count) })
+            });
+            showAlert('Накручено!');
+            loadAll();
+        }
+
+        async function loadOnlineUsers() {
+            const res = await fetch('/api/admin/online', { headers: { 'x-admin-pass': adminToken } });
+            const onlineUsers = await res.json();
+            document.getElementById('online-users-count').innerText = onlineUsers.length;
+            
+            if (onlineUsers.length === 0) {
+                document.getElementById('online-users-list').innerHTML = '<p style="text-align: center; color: var(--text); opacity: 0.7;">Нет пользователей онлайн</p>';
+                return;
+            }
+            
+            const usersHtml = onlineUsers.map(username => {
+                const user = allUsersCache[username];
+                return user ? `
+                    <div class="user-card">
+                        <div class="user-info">
+                            <img src="${user.photo}" class="user-avatar">
+                            <div class="user-details">
+                                <h3>${user.name} (@${username}) ${user.isVerified ? badgeHtml : ''}</h3>
+                                <p style="color: var(--success); font-size: 12px;">🟢 Онлайн</p>
+                            </div>
+                        </div>
+                    </div>
+                ` : '';
+            }).join('');
+            
+            document.getElementById('online-users-list').innerHTML = usersHtml;
+        }
+
+        
+        async function actUser(u, action, value) {
+            await fetch('/api/admin/action', { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'application/json', 'x-admin-pass': adminToken }, 
+                body: JSON.stringify({ username: u, action, value }) 
+            });
+            loadAll();
+        }
+
+        async function actRoom(roomId, action, value) {
+            if(action === 'delete') {
+                showConfirm(
+                    'Точно удалить комнату?',
+                    () => {
+                        fetch('/api/admin/roomAction', { 
+                            method: 'POST', 
+                            headers: { 'Content-Type': 'application/json', 'x-admin-pass': adminToken }, 
+                            body: JSON.stringify({ roomId, action, value }) 
+                        }).then(() => loadAll());
+                    }
+                );
+            } else {
+                fetch('/api/admin/roomAction', { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json', 'x-admin-pass': adminToken }, 
+                    body: JSON.stringify({ roomId, action, value }) 
+                }).then(() => loadAll());
+            }
+        }
+
+        async function clearAllMessenger() {
+            const socket = io();
+            console.log('clearAllMessenger called, adminToken:', adminToken);
+            
+            showConfirm(
+                '⚠️ ВЫ УВЕРЕНЫ? Это удалит ВСЕ данные мессенджера!\n\nЭто действие НЕЛЬЗЯ ОТМЕНИТЬ!',
+                () => {
+                    showConfirm(
+                        '⚠️ ПОСЛЕДНЕЕ ПРЕДУПРЕЖДЕНИЕ!\n\nВсе пользователи, чаты, группы, каналы и сообщения будут удалены!',
+                        () => {
+                            console.log('Sending adminClearAll with password:', adminToken);
+                            
+                            // Слушаем ответ от сервера
+                            socket.on('adminClearAllResponse', (response) => {
+                                console.log('adminClearAllResponse received:', response);
+                                if (response.success) {
+                                    showAlert('✓ Мессенджер полностью очищен!\n\nРезервная копия: ' + response.backup);
+                                    setTimeout(() => {
+                                        location.href = '/admin.html';
+                                    }, 1500);
+                                } else {
+                                    showAlert('Ошибка: ' + (response.message || response.error));
+                                }
+                                socket.off('adminClearAllResponse');
+                            });
+                            
+                            // Отправляем запрос на очистку
+                            socket.emit('adminClearAll', { adminPassword: adminToken });
+                        }
+                    );
+                }
+            );
+        }
+        
+        function showAlert(message) {
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.background = 'rgba(0,0,0,0.5)';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.style.zIndex = '10000';
+            
+            const box = document.createElement('div');
+            box.style.background = 'var(--panel)';
+            box.style.padding = '30px';
+            box.style.borderRadius = '12px';
+            box.style.maxWidth = '400px';
+            box.style.color = 'var(--text)';
+            box.style.boxShadow = 'var(--shadow-lg)';
+            box.innerHTML = `<p style="margin: 0 0 20px 0; white-space: pre-wrap;">${message}</p><button style="width: 100%; padding: 10px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">OK</button>`;
+            
+            modal.appendChild(box);
+            document.body.appendChild(modal);
+            
+            box.querySelector('button').onclick = () => modal.remove();
+            modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+        }
+        
+        function showConfirm(message, onConfirm, onCancel) {
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.background = 'rgba(0,0,0,0.5)';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.style.zIndex = '10000';
+            
+            const box = document.createElement('div');
+            box.style.background = 'var(--panel)';
+            box.style.padding = '30px';
+            box.style.borderRadius = '12px';
+            box.style.maxWidth = '400px';
+            box.style.color = 'var(--text)';
+            box.style.boxShadow = 'var(--shadow-lg)';
+            box.innerHTML = `<p style="margin: 0 0 20px 0; white-space: pre-wrap;">${message}</p><div style="display: flex; gap: 10px;"><button class="confirm-btn" style="flex: 1; padding: 10px; background: var(--danger); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">ДА</button><button class="cancel-btn" style="flex: 1; padding: 10px; background: var(--border); color: var(--text); border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">ОТМЕНА</button></div>`;
+            
+            modal.appendChild(box);
+            document.body.appendChild(modal);
+            
+            box.querySelector('.confirm-btn').onclick = () => {
+                modal.remove();
+                onConfirm();
+            };
+            
+            box.querySelector('.cancel-btn').onclick = () => {
+                modal.remove();
+                if(onCancel) onCancel();
+            };
+            
+            modal.onclick = (e) => { if(e.target === modal) { modal.remove(); if(onCancel) onCancel(); } };
+        }
+
+            </script>
+</body>
+</html>

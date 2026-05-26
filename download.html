@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreezTalk - Скачать приложение</title>
+    <link rel="icon" type="image/svg+xml" href="/breez-logo.svg">
+    <link rel="apple-touch-icon" href="/breez-logo.svg">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #ffffff;
+            --panel: #1a1a1a;
+            --border: #2a2a2a;
+            --accent: #00d4ff;
+            --accent-hover: #00a8cc;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            background: var(--panel);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        
+        .logo {
+            font-size: 3em;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--accent);
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        
+        .download-section {
+            margin: 30px 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 18px;
+            margin: 10px;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .download-btn:hover:before {
+            left: 100%;
+        }
+        
+        .download-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .coming-soon {
+            background: var(--border);
+            color: var(--text);
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .coming-soon:hover {
+            background: var(--border);
+            transform: none;
+            box-shadow: var(--shadow);
+        }
+        
+        .features {
+            margin: 40px 0;
+            text-align: left;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: var(--bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        
+        .feature-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: var(--accent);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text);
+            opacity: 0.6;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .logo {
+                font-size: 2em;
+            }
+            
+            .download-btn {
+                display: block;
+                margin: 10px auto;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="margin-bottom: 20px;">
+            <img src="/breez-logo.svg" alt="BreezTalk" style="width: 80px; height: 80px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);">
+        </div>
+        <div class="logo">BreezTalk</div>
+        <div class="subtitle">Современный мессенджер с E2EE шифрованием</div>
+        
+        <div class="download-section">
+            <a href="#" class="download-btn coming-soon">
+                📱 Скачать для Android
+            </a>
+            <a href="#" class="download-btn coming-soon">
+                🍎 Скачать для iOS
+            </a>
+            <a href="#" class="download-btn coming-soon">
+                💻 Скачать для Windows
+            </a>
+            <a href="#" class="download-btn coming-soon">
+                🍏 Скачать для macOS
+            </a>
+            <a href="#" class="download-btn coming-soon">
+                🐧 Скачать для Linux
+            </a>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <div>
+                    <strong>End-to-End шифрование</strong><br>
+                    Ваши сообщения надежно защищены
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📹</div>
+                <div>
+                    <strong>Видеозвонки</strong><br>
+                    Качественные видеозвонки с групповыми чатами
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">👥</div>
+                <div>
+                    <strong>Группы и каналы</strong><br>
+                    Создавайте сообщества и делитесь контентом
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌙</div>
+                <div>
+                    <strong>Темная тема</strong><br>
+                    Комфортное использование в любое время суток
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Приложение находится в разработке</p>
+            <p>Следите за обновлениями на <a href="/" style="color: var(--accent);">talk.com</a></p>
+            <p>© 2026 BreezTalk. Все права защищены.</p>
+        </div>
+    </div>
+</body>
+</html>

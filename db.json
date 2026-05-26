@@ -1,0 +1,490 @@
+{
+  "users": {
+    "baggari": {
+      "name": "Baggarih",
+      "username": "baggari",
+      "password": "81d7d1ac060b7be0a180a42b6f1939ba5932b3efa93236f40703500955f4de6a",
+      "keys": {
+        "private": "69551d0ab377c72a6f6398044c5ba2",
+        "public": "4ce762f404a4a3ce0126672e5d8fe15b"
+      },
+      "bio": "Привет, я в BreezTalk!",
+      "photo": "/uploads/1779731088915.png",
+      "rating": 0,
+      "followers": [],
+      "following": [],
+      "isBlocked": false,
+      "isVerified": false,
+      "strikes": 0,
+      "pinned": [
+        "buzzamix"
+      ],
+      "privacy": "all",
+      "reactions": {},
+      "deletedMessages": []
+    },
+    "owner": {
+      "name": "owner",
+      "username": "owner",
+      "password": "81d7d1ac060b7be0a180a42b6f1939ba5932b3efa93236f40703500955f4de6a",
+      "keys": {
+        "private": "42f8cbb42b00e216d72a9a75d9be9b",
+        "public": "6e1a5d179f0b2830ecf00a27fab2feaa"
+      },
+      "bio": "Привет, я в BreezTalk!",
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwNzdmZiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5CPC90ZXh0Pjwvc3ZnPg==",
+      "rating": 0,
+      "followers": [],
+      "following": [],
+      "isBlocked": false,
+      "isVerified": false,
+      "strikes": 0,
+      "pinned": [],
+      "privacy": "all",
+      "reactions": {},
+      "deletedMessages": []
+    },
+    "amine": {
+      "name": "amine",
+      "username": "amine",
+      "password": "a320480f534776bddb5cdb54b1e93d210a3c7d199e80a23c1b2178497b184c76",
+      "keys": {
+        "private": "1223a17ecba9b5cb316074d23b8056",
+        "public": "1b60e691cf0a6a47b8de140861778a5"
+      },
+      "bio": "Привет, я в BreezTalk!",
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzMwZDIzMSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5BPC90ZXh0Pjwvc3ZnPg==",
+      "rating": 0,
+      "followers": [],
+      "following": [],
+      "isBlocked": false,
+      "isVerified": false,
+      "strikes": 0,
+      "pinned": [],
+      "privacy": "all"
+    },
+    "support": {
+      "name": "support",
+      "username": "support",
+      "password": "a320480f534776bddb5cdb54b1e93d210a3c7d199e80a23c1b2178497b184c76",
+      "keys": {
+        "private": "5d610f87a5f257a0bf35934b966ba8",
+        "public": "65377affaf13c7ac4832dcd18ae7c13b"
+      },
+      "bio": "Привет, я в BreezTalk!",
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzQzNDk5MCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5TPC90ZXh0Pjwvc3ZnPg==",
+      "rating": 0,
+      "followers": [],
+      "following": [],
+      "isBlocked": false,
+      "isVerified": false,
+      "strikes": 0,
+      "pinned": [],
+      "privacy": "follows"
+    },
+    "supportr": {
+      "name": "supportr",
+      "username": "supportr",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "keys": {
+        "private": "78310323b57edb098f5204dd5b27f5",
+        "public": "c791d78a22faf027d01453cafd81d663"
+      },
+      "bio": "Привет, я в BreezTalk!",
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2IyYWJjMCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5TPC90ZXh0Pjwvc3ZnPg==",
+      "rating": 0,
+      "followers": [],
+      "following": [],
+      "isBlocked": false,
+      "isVerified": false,
+      "strikes": 0,
+      "pinned": [],
+      "privacy": "all"
+    },
+    "ghghgh": {
+      "name": "555555",
+      "username": "ghghgh",
+      "password": "a320480f534776bddb5cdb54b1e93d210a3c7d199e80a23c1b2178497b184c76",
+      "plainPassword": "123321",
+      "keys": {
+        "public": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE7uW4O/jw6Jwko5ltOQ5Zh4vscI3rkoVH15SPdlFPTiDomrYosfB4ebt+qSX/u6LAF3EV9tTHOFbCm5sd9NLIPA=="
+      },
+      "bio": "Привет, я в BreezTalk!",
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzViMWI2OCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj41PC90ZXh0Pjwvc3ZnPg==",
+      "rating": 0,
+      "followers": [],
+      "following": [],
+      "isBlocked": false,
+      "isVerified": false,
+      "strikes": 0,
+      "pinned": [],
+      "privacy": "all",
+      "language": "ru"
+    }
+  },
+  "posts": [],
+  "chats": [
+    {
+      "u1": "owner",
+      "u2": "baggari",
+      "msgs": [
+        {
+          "sender": "owner",
+          "text": "8idqmgiw:FwEX",
+          "file": null,
+          "msgType": "text",
+          "time": 1779309745046,
+          "read": true,
+          "reactions": {
+            "👍": [
+              "baggari"
+            ],
+            "❤️": [
+              "baggari"
+            ]
+          }
+        },
+        {
+          "sender": "baggari",
+          "text": "(Сообщение удалено)",
+          "file": null,
+          "msgType": "text",
+          "time": 1779310336278,
+          "read": true,
+          "deleted": true
+        },
+        {
+          "sender": "baggari",
+          "text": "",
+          "file": "/uploads/1779347300027.jpg",
+          "msgType": "media",
+          "time": 1779347300040,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "",
+          "file": "/uploads/1779730006210.png",
+          "msgType": "media",
+          "time": 1779730006222,
+          "read": true
+        },
+        {
+          "sender": "owner",
+          "text": "9y4qrryq:MxYGAxkAHCs=",
+          "file": null,
+          "msgType": "text",
+          "time": 1779731308447,
+          "read": true
+        },
+        {
+          "sender": "owner",
+          "text": "xtib4cc1:FAIU",
+          "file": null,
+          "msgType": "text",
+          "time": 1779731315154,
+          "read": true,
+          "reactions": {
+            "👍": [
+              "baggari"
+            ]
+          }
+        }
+      ],
+      "pinnedMsg": null
+    },
+    {
+      "u1": "supportr",
+      "u2": "baggari",
+      "msgs": [
+        {
+          "sender": "supportr",
+          "text": "gfb4nma5:0YzRmtGM0Yw=",
+          "file": null,
+          "msgType": "text",
+          "time": 1779741094134,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "jzft6dm0:8KOiu1PRpNGb0ZHRk9Gh0Z8V0ILRkdCD0I3Rt9G+0IbQjhgW0bXRndCP0bDQgdGZ0KjRn9Gf0bHQpNCvXkZXE9Gy0IDQgxg=",
+          "file": null,
+          "msgType": "call_log",
+          "time": 1779741146397,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "ыыыы",
+          "file": null,
+          "msgType": "text",
+          "time": 1779741863772,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "еппп",
+          "file": null,
+          "msgType": "text",
+          "time": 1779744433482,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "ппппп",
+          "file": null,
+          "msgType": "text",
+          "time": 1779744439613,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "",
+          "file": "/uploads/1779745163954.webm",
+          "msgType": "voice",
+          "time": 1779745163962,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "",
+          "file": "/uploads/1779745174617.webm",
+          "msgType": "voice",
+          "time": 1779745174621,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "",
+          "file": "/uploads/1779745191884.webm",
+          "msgType": "media",
+          "time": 1779745191938,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "",
+          "file": "/uploads/1779751803705.jpg",
+          "msgType": "media",
+          "time": 1779751803730,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "",
+          "file": "/uploads/1779751807108.webm",
+          "msgType": "voice",
+          "time": 1779751807114,
+          "read": true
+        }
+      ]
+    },
+    {
+      "u1": "baggari",
+      "u2": "favorites_baggari",
+      "msgs": [
+        {
+          "sender": "baggari",
+          "text": "fff",
+          "file": null,
+          "msgType": "text",
+          "time": 1779817923597,
+          "read": false
+        }
+      ]
+    },
+    {
+      "u1": "ghghgh",
+      "u2": "baggari",
+      "msgs": [
+        {
+          "sender": "ghghgh",
+          "text": "ggg",
+          "file": null,
+          "msgType": "text",
+          "time": 1779818426171,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "1:JZY9Ibir1jMDMlwb:rhMpLYHEmhCjJ38BhhdaIQmeTiSi",
+          "file": null,
+          "msgType": "text",
+          "time": 1779818432084,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "1:gJgg6dY80UKmlV+U:aakxaRW5fu8D2iC/Cg1nYN1WbA==",
+          "file": null,
+          "msgType": "text",
+          "time": 1779818443220,
+          "read": true
+        },
+        {
+          "sender": "ghghgh",
+          "text": "tttt",
+          "file": null,
+          "msgType": "text",
+          "time": 1779818445792,
+          "read": true
+        },
+        {
+          "sender": "ghghgh",
+          "text": "вввввв",
+          "file": null,
+          "msgType": "text",
+          "time": 1779820308563,
+          "read": true
+        },
+        {
+          "sender": "baggari",
+          "text": "вввввв",
+          "file": null,
+          "msgType": "text",
+          "time": 1779820315747,
+          "read": true
+        }
+      ]
+    }
+  ],
+  "rooms": {
+    "buzzamix": {
+      "type": "channel",
+      "isPrivate": false,
+      "name": "ыыы",
+      "desc": "",
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwNzdmZiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5CPC90ZXh0Pjwvc3ZnPg==",
+      "admin": "baggari",
+      "members": [
+        "baggari"
+      ],
+      "msgs": [
+        {
+          "sender": "baggari",
+          "text": "(Сообщение удалено)",
+          "file": null,
+          "msgType": "text",
+          "time": 1779347288079,
+          "readers": [
+            "baggari"
+          ],
+          "reactions": {
+            "👎": [
+              "baggari"
+            ]
+          },
+          "deleted": true
+        },
+        {
+          "sender": "baggari",
+          "text": "",
+          "file": "/uploads/1779752289252.webm",
+          "msgType": "voice",
+          "time": 1779752289322,
+          "readers": [
+            "baggari"
+          ]
+        },
+        {
+          "sender": "baggari",
+          "text": "",
+          "file": "/uploads/1779752293766.jpg",
+          "msgType": "media",
+          "time": 1779752293778,
+          "readers": [
+            "baggari"
+          ]
+        }
+      ],
+      "isVerified": false,
+      "isBlocked": false,
+      "pinnedMsg": 0
+    },
+    "breeztalk": {
+      "type": "group",
+      "isPrivate": false,
+      "name": "ыы",
+      "desc": "",
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwNzdmZiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5CPC90ZXh0Pjwvc3ZnPg==",
+      "admin": "baggari",
+      "members": [
+        "baggari"
+      ],
+      "msgs": [],
+      "isVerified": false,
+      "isBlocked": false
+    },
+    "priv_pxq8ybyq": {
+      "type": "channel",
+      "isPrivate": true,
+      "name": "ыыы",
+      "desc": "ыыы",
+      "photo": "/uploads/1779751816667.png",
+      "admin": "baggari",
+      "members": [
+        "baggari"
+      ],
+      "msgs": [],
+      "isVerified": false,
+      "isBlocked": false
+    },
+    "priv_4aa907e4": {
+      "type": "channel",
+      "isPrivate": true,
+      "name": "аааа",
+      "desc": "ааа",
+      "photo": "/uploads/1779752024875.jpg",
+      "admin": "baggari",
+      "members": [
+        "baggari"
+      ],
+      "msgs": [],
+      "isVerified": false,
+      "isBlocked": false
+    }
+  },
+  "forbiddenPosts": [],
+  "subscriptions": {
+    "baggari": {
+      "endpoint": "https://fcm.googleapis.com/fcm/send/c6YLRewm0yM:APA91bHv-eL9g7t67zBaikg-dg7aSM-WgQtKgQbS7Jc8rYc2v02_WQI_cOCRMTfGTDnNG6h7lSzRUIsgvQJ05iuWPdbhr5c9ed6N926NjCR1amttGpMvsFREGSDvNZkF5ToS1WUY47Pz",
+      "expirationTime": null,
+      "keys": {
+        "p256dh": "BLrrno5juBANzey7eOJI6argh-1sXkzKWOKXuKAdQFVxVLBvYWcH4WMYzocDx0h6_1Awt_jePZPgHncCWuRRw0s",
+        "auth": "xnomyk4B03cWl_eUqFIraw"
+      }
+    },
+    "owner": {
+      "endpoint": "https://fcm.googleapis.com/fcm/send/dnMWkm2DrHI:APA91bG8bknCzEIXFkznBLsXE3eibY5bGsT2tWzB1wiiUWq03U_i1BsLCG_xZnhk5hqEl0Kt6ZxYSPOCigHBwLGkby2ErhFlnqsUj5JeY1ThzHV8fAQCwI2O9eKlDGF37E4tETV-PPVC",
+      "expirationTime": null,
+      "keys": {
+        "p256dh": "BNexMcmRqBlZoKunz6VprVn94qMgB3jbLZ31lbDAof3TqT03MRpO7VJRHlVmwy5xJ9Ku9q196i3ote4wCDdUmU8",
+        "auth": "h5RJ_-kyamHFgPs_b1KW3w"
+      }
+    },
+    "support": {
+      "endpoint": "https://fcm.googleapis.com/fcm/send/dnMWkm2DrHI:APA91bG8bknCzEIXFkznBLsXE3eibY5bGsT2tWzB1wiiUWq03U_i1BsLCG_xZnhk5hqEl0Kt6ZxYSPOCigHBwLGkby2ErhFlnqsUj5JeY1ThzHV8fAQCwI2O9eKlDGF37E4tETV-PPVC",
+      "expirationTime": null,
+      "keys": {
+        "p256dh": "BNexMcmRqBlZoKunz6VprVn94qMgB3jbLZ31lbDAof3TqT03MRpO7VJRHlVmwy5xJ9Ku9q196i3ote4wCDdUmU8",
+        "auth": "h5RJ_-kyamHFgPs_b1KW3w"
+      }
+    },
+    "supportr": {
+      "endpoint": "https://fcm.googleapis.com/fcm/send/dnMWkm2DrHI:APA91bG8bknCzEIXFkznBLsXE3eibY5bGsT2tWzB1wiiUWq03U_i1BsLCG_xZnhk5hqEl0Kt6ZxYSPOCigHBwLGkby2ErhFlnqsUj5JeY1ThzHV8fAQCwI2O9eKlDGF37E4tETV-PPVC",
+      "expirationTime": null,
+      "keys": {
+        "p256dh": "BNexMcmRqBlZoKunz6VprVn94qMgB3jbLZ31lbDAof3TqT03MRpO7VJRHlVmwy5xJ9Ku9q196i3ote4wCDdUmU8",
+        "auth": "h5RJ_-kyamHFgPs_b1KW3w"
+      }
+    },
+    "ghghgh": {
+      "endpoint": "https://fcm.googleapis.com/fcm/send/dnMWkm2DrHI:APA91bG8bknCzEIXFkznBLsXE3eibY5bGsT2tWzB1wiiUWq03U_i1BsLCG_xZnhk5hqEl0Kt6ZxYSPOCigHBwLGkby2ErhFlnqsUj5JeY1ThzHV8fAQCwI2O9eKlDGF37E4tETV-PPVC",
+      "expirationTime": null,
+      "keys": {
+        "p256dh": "BNexMcmRqBlZoKunz6VprVn94qMgB3jbLZ31lbDAof3TqT03MRpO7VJRHlVmwy5xJ9Ku9q196i3ote4wCDdUmU8",
+        "auth": "h5RJ_-kyamHFgPs_b1KW3w"
+      }
+    }
+  }
+}
